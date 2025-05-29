@@ -1,20 +1,40 @@
  #include <stdio.h>
  
- int main() {
-         
-    // Mover o torre cinco casas para direita
-    for (int i = 0; i < 5; i++) {
-        printf("Direita\n"); //Imprime a direção do movimento
+    void moverTorre(int casas) {
+        if (casas > 0) {
+            printf("Direita\n"); //imprime "Direita" uma vez
+            moverTorre(casas - 1);
+        
+        }
+    }
+    void moverBispo(int casas) {
+        if (casas > 0) {
+            printf("Diagonal\n"); //imprime "Diagonal" uma vez
+            moverBispo(casas - 1);
+        }
     }
 
-    int i = 1; //Mover o bispo cinco casas para esquerda
-
-    while (i <= 5) {
-        printf("Esquerda\n"); i++; //Imprime a direção do movimento
+    void moverRainha(int casas) {
+        if (casas > 0) {
+            printf("Esquerda\n"); //imprime "Esquerda" uma vez
+            moverRainha(casas - 1);
+        }
     }
+
+    void moverCavalo(int casas) {
+        if (casas > 0) {
+            printf("Cima e Direita\n"); //imprime "Cima e Direita" uma vez
+            moverCavalo(casas - 1);
+        }
+    }
+    int main() {
+        moverTorre(5);
+        moverBispo(5);
+        moverRainha(8);
+        moverCavalo(1);
     
     
-    int numero; 
+    int numero;
     do {
         printf("Digite um numero par para movimentar a rainha para frente");
         scanf("%d", &numero);
@@ -37,6 +57,9 @@
         }
         printf("Direita\n"); //Imprime "Direita" uma vez
     } 
-    
+
+
     return 0;
+
+    
     }
